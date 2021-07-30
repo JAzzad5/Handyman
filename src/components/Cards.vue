@@ -18,7 +18,7 @@
                     <img src="../assets/electric.svg" alt="" />
                 </div>
                 <div class="promo_link">
-                    <a>Ver actividades artisticas</a>
+                    <a>Go to Electric Services</a>
                 </div>
                 </div>
             </div>
