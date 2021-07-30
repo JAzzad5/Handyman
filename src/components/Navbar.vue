@@ -7,33 +7,22 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Collection of nav links, forms, and other content for toggling -->
-        <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+        <div id="navbarCollapse" class="collapse navbar-collapse justify-content-center ml-5">
             <div class="navbar-nav">
                 <a href="#" class="nav-item nav-link">Home</a>
                 <a href="#" class="nav-item nav-link">About</a>			
                 <div class="nav-item dropdown">
                     <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Services</a>
                     <div class="dropdown-menu">					
-                        <a href="#" class="dropdown-item">Web Design</a>
-                        <a href="#" class="dropdown-item">Web Development</a>
-                        <a href="#" class="dropdown-item">Graphic Design</a>
-                        <a href="#" class="dropdown-item">Digital Marketing</a>
+                        <a href="#" class="dropdown-item">Electric</a>
+                        <a href="#" class="dropdown-item">Construction</a>
+                        <a href="#" class="dropdown-item">Woodwork</a>
+                        <a href="#" class="dropdown-item">Plumbing</a>
                     </div>
                 </div>
-                <a href="#" class="nav-item nav-link active">Pricing</a>
-                <a href="#" class="nav-item nav-link">Blog</a>
                 <a href="#" class="nav-item nav-link">Contact</a>
             </div>
-            <form class="navbar-form form-inline">
-                <div class="input-group search-box">								
-                    <input type="text" id="search" class="form-control" placeholder="Search here...">
-                    <div class="input-group-append">
-                        <span class="input-group-text">
-                            <i class="material-icons">&#xE8B6;</i>
-                        </span>
-                    </div>
-                </div>
-            </form>
+            
             <div class="navbar-nav ml-auto action-buttons">
                 <div class="nav-item dropdown">
                     <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle mr-4">Login</a>

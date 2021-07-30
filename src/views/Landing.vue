@@ -2,6 +2,7 @@
   <div>
     <Navbar/>
     <Carousel/>
+    <Cards/>
     
   </div>
 </template>
@@ -10,12 +11,14 @@
 // @ is an alias to /src
 import Navbar from '@/components/Navbar'
 import Carousel from '@/components/Carousel'
+import Cards from '@/components/Cards'
 
 export default {
   name: 'Landing',
   components: {
     Navbar,
-    Carousel
+    Carousel,
+    Cards,
   }
 }
 </script>
