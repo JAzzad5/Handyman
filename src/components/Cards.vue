@@ -12,13 +12,46 @@
             </div>
             <div class="row promo_container">
             <!-- Actividad Item -->
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12 promo_col">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12 promo_col">
                 <div class="promo_item">
                 <div class="promo_image">
                     <img src="../assets/electric.svg" alt="" />
                 </div>
                 <div class="promo_link">
                     <a>Go to Electric Services</a>
+                </div>
+                </div>
+            </div>
+            <!-- Actividad Item -->
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12 promo_col">
+                <div class="promo_item">
+                <div class="promo_image">
+                    <img src="../assets/handsaw.svg" alt="" />
+                </div>
+                <div class="promo_link">
+                    <a>Go to Woodwork Services</a>
+                </div>
+                </div>
+            </div>
+            <!-- Actividad Item -->
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12 promo_col">
+                <div class="promo_item">
+                <div class="promo_image">
+                    <img src="../assets/trowel.svg" alt="" />
+                </div>
+                <div class="promo_link">
+                    <a>Go to Construction Services</a>
+                </div>
+                </div>
+            </div>
+            <!-- Actividad Item -->
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12 promo_col">
+                <div class="promo_item">
+                <div class="promo_image">
+                    <img src="../assets/water-tap.svg" alt="" />
+                </div>
+                <div class="promo_link">
+                    <a>Go to Plumbing Services</a>
                 </div>
                 </div>
             </div>
@@ -47,6 +80,8 @@ export default {
 }
 .promo {
   padding-top: 88px;
+  margin-right: auto;
+  margin-left: auto;
 }
 .promo_container {
   margin-top: 75px;
@@ -58,7 +93,7 @@ export default {
 }
 
 .promo_item {
-  width: 90%;
+  width: 80%;
 }
 .promo_image {
     background-color: #EB9D02;
