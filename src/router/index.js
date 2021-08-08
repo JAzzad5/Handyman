@@ -8,6 +8,11 @@ const routes = [
     name: 'Landing',
     component: () => import("../views/Landing.vue"),
   },
+  {
+    path: '/Login',
+    name: 'Login',
+    component: () => import("../views/Login.vue"),
+  },
 ]
 
 const router = new VueRouter({
