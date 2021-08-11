@@ -26,32 +26,24 @@
             </div>
             
             <div class="navbar-nav ml-auto action-buttons">
-                <div class="nav-item dropdown">
+                <div v-if="this.logueado ==false " class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle mr-4">
 						<router-link :to="{ name: 'Login' }"> Login </router-link>
 					</a>
                 </div>
-                <div class="nav-item dropdown">
-                    <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle sign-up-btn">Sign up</a>
-                    <div class="dropdown-menu action-form">
-                        <form action="/examples/actions/confirmation.php" method="post">
-                            <p class="hint-text">Fill in this form to create your account!</p>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Username" required="required">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password" required="required">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Confirm Password" required="required">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms &amp; Conditions</a></label>
-                            </div>
-                            <input type="submit" class="btn btn-primary btn-block" value="Sign up">
-                        </form>
-                    </div>
+                <div v-if="this.logueado ==false " class="nav-item dropdown">
+                    <a class="btn btn-primary dropdown-toggle sign-up-btn">
+						Sing Up
+					</a>
                 </div>
+				<li v-if="this.logueado"  class="username nav-item dropdown mr-5">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{this.name}}</a>
+					<div class="dropdown-menu">
+					<a class="dropdown-item" href="#">Perfil</a>
+					<div class="dropdown-divider"></div>
+					<a v-on:click="cerrarSesion()" class="dropdown-item" href="">Log Out</a>
+					</div>
+				</li>
             </div>
         </div>
     </nav>
@@ -64,8 +56,42 @@ export default {
   name: "Navbar",
   data() {
     return {
+		logueado:false,
+		name: ""
     };
   },
+  created() {
+    this.cargarUsuario();
+  },
+  methods:{
+	  async cargarUsuario() {
+      try {
+        if(this.$cookie.get('userId') != undefined){
+			console.log(this.$cookie.get('userId'))
+          this.logueado= true
+		  this.name = this.$cookie.get('userName') +" " + this.$cookie.get('userLName')
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+	async cerrarSesion(){
+      this.logueado = false;
+      this.$cookie.delete('userId');
+      this.$cookie.delete('userName');
+      this.$cookie.delete('userLName');
+      console.log(this.$router.history.current.path);
+      if (this.$router.history.current.path == '/') {
+        this.$router.push({
+          path: '/Login',
+        });
+      } else {
+        this.$router.push({
+          name: 'Landing',
+        });
+      }
+    },
+  }
  
 };
 </script>
@@ -74,6 +100,16 @@ export default {
 
 body {
 	font-family: 'Varela Round', sans-serif;
+}
+.username{
+	color: #fff!important;
+	background: #EB9D02 !important;
+	padding: 5px;
+}
+.username:hover{
+	color: #fff!important;
+	background: #b37803 !important;
+	padding: 5px;
 }
 .form-control {
 	box-shadow: none;		
@@ -86,6 +122,9 @@ body {
 	padding-right: 16px;
 	border-bottom: 1px solid #dfe3e8;
 	border-radius: 0;
+}
+.nav-link{
+	color: #fff!important;
 }
 .nav-link img {
 	border-radius: 50%;

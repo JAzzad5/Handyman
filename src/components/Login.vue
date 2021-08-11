@@ -10,13 +10,17 @@
         	<p class="txu"><b>Login to your account</b></p><br>
           	<div class="form-group">
 				<p class="tx"><b>Email:</b></p>
-            	<input type="text" class="form-control" placeholder="Username" required="required">
+            	<input v-model="formLogin.email" type="email" class="form-control" placeholder="email" required="required">
           	</div>	
         	<div class="form-group">
 				<br><p class="tx"><b>Password:</b></p>
-            	<input type="password" class="form-control" placeholder="Password" required="required">
+            	<input  v-model="formLogin.password" type="password" class="form-control" placeholder="Password" required="required">
         	</div>
-        	<br><input type="submit" class="btn btn-primary login-btn " value="Login"><br><br>
+        	<br>
+			<button class="btn btn-primary login-btn" v-on:click="login()" type="button">
+              Login
+            </button>
+			<br><br>
 			<input type="submit" class="btn btn-primary sign-btn" value="Sign up">
         	<div class="text-center mt-2">
          		<a href="#">Forgot Your password?</a>
@@ -29,12 +33,47 @@
 </template>
 
 <script>
+
+import LoginService from "../services/login.service";
 export default {
   name: 'Login',
   data() {
     return {
+		formLogin: {
+        email: "",
+        password: "",
+      },
     };
   },
+  created() {
+    this.loginService = new LoginService();
+  },
+	methods: {
+    async login() {
+		console.log(this.formLogin);
+      try {
+        await this.loginService.login(this.formLogin).then((data) => {
+          if(data.ok === true ){
+			console.log(data)
+			this.$cookie.set('userId',data.uid, { expires: '15m' });
+            this.$cookie.set('userName',data.name, { expires: '15m' });
+            this.$cookie.set('userLName',data.lastName, { expires: '15m' });
+            this.redirectLanding();
+          }
+		  else{
+			 console.log(data) 
+		  }
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+	redirectLanding() {
+      this.$router.push({
+        path: '/',
+      });
+    },
+	},
  
 };
 </script>
