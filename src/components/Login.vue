@@ -100,7 +100,7 @@ export default {
 .column {
 	float: left;
 	width: 50%;
-	height: 90vh;
+	height: 100%;
 }
 .logo{
 	margin-top: 10vw;
