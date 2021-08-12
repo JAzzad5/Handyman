@@ -189,6 +189,9 @@ body {
 	background: transparent;
 	line-height: normal;
 }
+.sign-up-btn a{
+	color: #fff;
+}
 .navbar .navbar-form {
 	border: none;
 }
