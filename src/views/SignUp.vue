@@ -100,6 +100,8 @@ export default {
         await this.SignUpService.signup(this.formRegistro).then((data) => {
           if(data.ok === true ){
             console.log(data)
+            this.redirectHome(data.uid,data.name,data.lastName)
+            
           }
       else{
       console.log(data) 
@@ -109,7 +111,16 @@ export default {
       catch (error) {
         console.log(error);
       }
-    }
+    },
+    async redirectHome(uid,name,lastName) {
+        console.log
+        this.$cookie.set('userId',uid, { expires: '15m' });
+        this.$cookie.set('userName',name, { expires: '15m' });
+        this.$cookie.set('userLName',lastName, { expires: '15m' });
+        this.$router.push({
+          path: '/',
+        });
+      },
   }
 }
 </script>
