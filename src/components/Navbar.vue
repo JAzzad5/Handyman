@@ -33,7 +33,7 @@
                 </div>
                 <div v-if="this.logueado ==false " class="nav-item dropdown">
                     <a class="btn btn-primary dropdown-toggle sign-up-btn">
-						Sing Up
+						<router-link :to="{ name: 'SignUp' }"> Sign Up </router-link>
 					</a>
                 </div>
 				<li v-if="this.logueado"  class="username nav-item dropdown mr-5">
