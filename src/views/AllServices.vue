@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar/>
-    <Login/>
+    <Services/>
     
   </div>
 </template>
@@ -9,24 +9,17 @@
 <script>
 // @ is an alias to /src
 import Navbar from '@/components/Navbar'
-import Login from '@/components/Login'
+import Services from '@/components/Services'
 
 export default {
-  name: 'Login',
+  name: 'AllServices',
   components: {
     Navbar,
-    Login,
+    Services
   }
 }
 </script>
 
 <style>
   
-.card-body{
-  color:#000;
-  text-align: left;
-}
-.card-body h5{
-  font-weight: bold;
-}
 </style>

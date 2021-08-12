@@ -6,7 +6,9 @@
             <div class="row">
             <div class="col">
                 <div class="section_title_container text-center">
-                <div class="section_title">Conoce nuestros servicios</div>
+                <div class="section_title"> Check out our 
+                  <router-link :to="{ name: 'AllServices' }" class="section_title"> <b>services</b> </router-link>
+                </div>
                 </div>
             </div>
             </div>
@@ -76,8 +78,10 @@ export default {
   font-size: 40px;
   font-family: 'Times New Roman', Times, serif;
   font-weight: bold;
+  color: #000;
   margin-bottom: 10px;
 }
+
 .promo {
   padding-top: 88px;
   margin-right: auto;
@@ -86,7 +90,17 @@ export default {
 .promo_container {
   margin-top: 75px;
 }
+.section_title b {
+	color: #EB9D02;		
+}
+.section_title b:hover {
+	color: #d68f00;
 
+}
+a:hover {
+    color: #d68f00;
+    text-decoration: underline;
+}
 .promo_col {
   border-radius: 15px;
   margin-bottom: 15px;
