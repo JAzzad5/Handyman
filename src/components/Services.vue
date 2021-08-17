@@ -25,7 +25,9 @@
                             <img class="star" src = "../assets/star.svg" />
                             ( {{collabs.cantidadPuntaje}} )</p>
                         <p class="card-text">{{collabs.descripcion}}</p>
-                        <a href="#" class="btn btn-primary">Contact</a>
+                        <a> 
+                            <router-link :to="{ path: `CollabProfile/${collabs._id}`}"> Contact </router-link>
+                        </a>
                     </div>
                 </div>
                 </div>

@@ -23,6 +23,11 @@ const routes = [
     name: 'AllServices',
     component: () => import("../views/AllServices.vue"),
   },
+  {
+    path: '/CollabProfile/:id',
+    name: 'CollabProfile',
+    component: () => import("../views/CollabProfile.vue"),
+  },
 ]
 
 const router = new VueRouter({

@@ -3,13 +3,19 @@ const axios = require('axios');
 
 
 class Collaborators {
-    static BASE_URL = `${API_BASE_URL}/servicios/all`;
+    static BASE_URL = `${API_BASE_URL}/servicios`;
 
     constructor() { }
 
     async obtenerColaboradores() {
         return axios
-            .get(`${Collaborators.BASE_URL}`)
+            .get(`${Collaborators.BASE_URL}/all`)
+            .then(res => res.data);
+    }
+
+    async obtenerColaborador(id) {
+        return axios
+            .get(`${Collaborators.BASE_URL}/${id}`)
             .then(res => res.data);
     }
 }
