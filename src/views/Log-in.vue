@@ -12,7 +12,7 @@ import Navbar from '@/components/Navbar'
 import Login from '@/components/Login'
 
 export default {
-  name: 'Login',
+  name: 'Log-in',
   components: {
     Navbar,
     Login,

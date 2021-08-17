@@ -28,7 +28,7 @@
             <div class="navbar-nav ml-auto action-buttons">
                 <div v-if="this.logueado ==false " class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle mr-4">
-						<router-link :to="{ name: 'Login' }"> Login </router-link>
+						<router-link :to="{ name: 'Log-in' }"> Login </router-link>
 					</a>
                 </div>
                 <div v-if="this.logueado ==false " class="nav-item dropdown">
@@ -83,7 +83,7 @@ export default {
       console.log(this.$router.history.current.path);
       if (this.$router.history.current.path == '/') {
         this.$router.push({
-          path: '/Login',
+          path: '/Log-in',
         });
       } else {
         this.$router.push({
