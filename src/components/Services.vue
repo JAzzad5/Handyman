@@ -13,7 +13,7 @@
               >
               <label></label>
               <div class="card" style="width: 18rem;">
-                    <img src="../assets/Juan.png"  class="card-img-top" alt="...">
+                    <img  v-bind:src="collabs.img" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{collabs.name}} {{collabs.lastName}}</h5>
                         <p class="card-text">Service: {{collabs.profesion}}</p>
@@ -25,9 +25,11 @@
                             <img class="star" src = "../assets/star.svg" />
                             ( {{collabs.cantidadPuntaje}} )</p>
                         <p class="card-text">{{collabs.descripcion}}</p>
-                        <a> 
-                            <router-link :to="{ path: `CollabProfile/${collabs._id}`}"> Contact </router-link>
-                        </a>
+                         <button  v-on:click="cargarimg(collabs.img)" class="btn btn-primary">
+                            <router-link style="color: white; " :to="{ path: `CollabProfile/${collabs._id}`}"> Contact </router-link>
+                         </button>
+                            
+                       
                     </div>
                 </div>
                 </div>
@@ -44,7 +46,11 @@ export default {
     name: "Services",
   data() {
     return {
-        collaborators:[]
+        collaborators:[],
+        collabsImg:[
+            'https://img.freepik.com/foto-gratis/hombre-constructor-feliz-positivo-chaleco-construccion-casco-seguridad-mirando-camara-sonriendo-alegremente-mostrando-pulgares-arriba-sobre-blanco_141793-109190.jpg?size=626&ext=jpg',
+            'https://todoparaelconstructor.com/wp-content/uploads/todo-para-el-constructor.jpg',
+            'https://static8.depositphotos.com/1002111/989/i/600/depositphotos_9899978-stock-photo-builder-shows-gesture-ok.jpg']
     };
   },
   created() {
@@ -55,11 +61,30 @@ export default {
             await this.collab.obtenerColaboradores().then((data) => {
                 console.log(data);
                 this.collaborators = data;
+                let i =0;
+                for (i = 0; i < this.collaborators.length; i++) { 
+                    console.log(this.collaborators[i]);
+                     this.collaborators[i]['img'] = this.collabsImg[i];
+                }
+                console.log(this.collabsImg);
+                console.log("actualizados");
+                console.log(this.collaborators);
             });
             
         } catch (error) {
                  console.log(error);
         }
+  },
+  methods:{
+      async cargarimg(img){
+          try {
+               this.$cookie.delete('img');
+               this.$cookie.set('img',img, { expires: '15m' });
+          } catch (error) {
+              
+          }
+         
+      }
   }
 }
 
@@ -81,10 +106,12 @@ export default {
 .card{
     min-height:334px;
 }
-.btn-primary {
+.btn-primary, .btn-primary:hover, .btn-primary:active  {
     color: #fff;
     background-color: #EB9D02;
     border-color: #EB9D02;
+    margin-right:auto; 
+    margin-left:auto;
 }
 .serviceName{
     font-size: 40px;

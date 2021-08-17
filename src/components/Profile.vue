@@ -9,7 +9,7 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="../assets/Juan.png" alt="Admin" class="rounded-circle" width="180" height="180">
+                    <img :src="img" alt="Admin" class="rounded-circle" width="180" height="180">
                     <div class="mt-3">
                       <h4>{{this.user.name}} {{this.user.lastName}}</h4>
                       <p class="text-secondary mb-1">{{this.user.profesion}}</p>
@@ -138,7 +138,6 @@
 
         </div>
     </div>
-    </div>
 </template>
 
 <script>
@@ -150,12 +149,14 @@ export default {
     return {
         user:[],
         id: this.$route.params.id,
+        img: '',
     };
 
     
   },
   created() {
     this.collab = new Collaborators();
+    this.img = this.$cookie.get('img');
   },
     async mounted() {
         try {
