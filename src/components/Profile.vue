@@ -12,6 +12,13 @@
                     <img :src="img" alt="Admin" class="rounded-circle" width="180" height="180">
                     <div class="mt-3">
                       <h4>{{this.user.name}} {{this.user.lastName}}</h4>
+                      <p class="card-text">
+                            <img class="star" src = "../assets/star.svg" />
+                            <img class="star" src = "../assets/star.svg" />
+                            <img class="star" src = "../assets/star.svg" />
+                            <img class="star" src = "../assets/star.svg" />
+                            <img class="star" src = "../assets/star.svg" />
+                            ( {{this.user.cantidadPuntaje}} )</p>
                       <p class="text-secondary mb-1">{{this.user.profesion}}</p>
                       <p class="text-muted font-size-sm">{{this.user.address}}</p>
                       <button class="btn btn-primary">Contact</button>
@@ -197,7 +204,11 @@ body{
     border: 0 solid rgba(0,0,0,.125);
     border-radius: .25rem;
 }
-
+.star{
+    height:17px;
+    width: 17px;
+    margin-right: 5px;
+}
 .card-body {
     flex: 1 1 auto;
     min-height: 1px;
